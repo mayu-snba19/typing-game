@@ -21,24 +21,24 @@ void setup(){
 
 void draw(){
     image(back,0,0);
+    image(cat,frameCount*5-100,400);
     if(frameCount>=180){
         letter=letters[(int)random(letters.length)];
         now=0;
         frameCount=0;
     }
     fill(255,255,255);
-    text("ミスタイプ"+mistake+" "+letter,450,300);
+    text(letter,450,300);
+     text(letter.charAt(now),450,400);
     if(time<=0) {
         image(back,0,0);
         fill(255,255,255);
         text("SCORE:"+score+"ミスタイプ数 :"+mistake,450,300);
         noLoop();
     }
-    fill(255,0,0);
+    fill(0,0,255);
     noStroke();
     rect(0,0,time/2,20);
-    fill(255,255,255);
-    text(letter.charAt(now),450,500);
     time--;
 }
 
