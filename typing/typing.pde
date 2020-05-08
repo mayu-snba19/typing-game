@@ -1,4 +1,5 @@
-
+PImage back;
+PImage cat;
 int score=0; //スコア
 String letters[]={"Java","PHP","Javascript","Python","C++","C#","COBOL","Swift","C","Brainfuck","Go","Haskell","Julia","Kotlin","Mathematica","Perl","Processing","R","Ruby","Rust"}; //タイピングする文字
 String letter; //現在の文字列
@@ -10,6 +11,8 @@ int cnt=0; //連続タイプ(10ごとに0になる)
 void setup(){
     size(900,600);
     PFont font = createFont("Osaka",50);
+    back=loadImage("back.PNG"); 
+    cat=loadImage("cat.PNG");
     textFont(font);
     textSize(50);
     textAlign(CENTER);
@@ -17,7 +20,7 @@ void setup(){
 }
 
 void draw(){
-    background(200);
+    image(back,0,0);
     if(frameCount>=180){
         letter=letters[(int)random(letters.length)];
         now=0;
@@ -26,7 +29,7 @@ void draw(){
     fill(255,255,255);
     text("ミスタイプ"+mistake+" "+letter,450,300);
     if(time<=0) {
-        background(200);
+        image(back,0,0);
         fill(255,255,255);
         text("SCORE:"+score+"ミスタイプ数 :"+mistake,450,300);
         noLoop();
