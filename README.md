@@ -8,7 +8,7 @@ Processing-Javaで作成したタイピングゲームです。
 
 ## 解説
 
-[Processingでタイピングゲームを作ろう](https://qiita.com/Mayu_snba19/items/3480f21bfb51c9497e68)に作り方が書いてあります。
+[Qiita『Processingでタイピングゲームを作ろう!』](https://qiita.com/Mayu_snba19/items/3480f21bfb51c9497e68)に作り方が書いてあります。
 
 ## 実行環境
 
