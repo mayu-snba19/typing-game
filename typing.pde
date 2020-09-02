@@ -16,6 +16,7 @@ String letters[]={"cluster","reaction","illuminate","friend","Japan","beauty","w
 "escape","traveler","pretender","happy","star","Processing","Java"}; 
 String letter; //現在の文字列
 String letter2; //文字色を変えるための文字列
+int nowString=0; //現在の文字列の番号
 int now=0; //現在の文字位置
 int time=1800; //時間
 int mistake=0; //ミスタイプ数
@@ -40,9 +41,20 @@ void setup(){
     textFont(font);
     textSize(60);
     textAlign(CENTER);
-    letter=letters[(int)random(letters.length)];
-    letter2="";
+    shuffle();
     backsong.play();
+}
+
+void shuffle() {
+	for (int i = letters.length - 1; i > 0; i--) {
+		int j = (int)random(letters.length);
+		String tmp = letters[i];
+		letters[i] = letters[j];
+		letters[j] = tmp;
+	}
+    nowString=0;
+    letter=letters[0];
+    letter2="";
 }
 
 void draw(){
@@ -58,7 +70,11 @@ void draw(){
         }
     }
     if(frameCount>=180){
-        letter=letters[(int)random(letters.length)];
+        if(nowString+1==letters.length) {
+              shuffle();
+              nowString=0;
+          }else nowString++;
+        letter=letters[nowString];
         now=0;
         frameCount=0;
     } 
@@ -102,8 +118,7 @@ void draw(){
            if(mouseX>=550 &&mouseX<=750 && mouseY>=300 && mouseY<=350){
                 play=true;
                 //全てを初期化する
-                letter=letters[(int)random(letters.length)];
-                letter2=""; 
+                shuffle();
                 now=0; 
                 time=1800;
                 mistake=0; 
@@ -137,7 +152,11 @@ void keyPressed() {
         now++;
         cnt++;
         if(now==letter.length()){
-          letter=letters[(int)random(letters.length)];  
+          if(nowString+1==letters.length) {
+              shuffle();
+              nowString=0;
+          }else nowString++;
+          letter=letters[nowString];
           now=0;
           frameCount=0;
           if(cnt>=10){
