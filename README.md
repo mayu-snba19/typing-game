@@ -4,7 +4,7 @@ Processing-Javaで作成したタイピングゲームです。
 
 ## DEMO
 
-[こちらから](https://twitter.com/mayu_snba19/status/1285049613154578435?s=21)見ることができます。
+[こちらから](https://www.youtube.com/watch?v=4050YWrO1Xg)見ることができます。
 
 ## 解説
 
